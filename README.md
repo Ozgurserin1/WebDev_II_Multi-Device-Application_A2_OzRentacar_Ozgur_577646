@@ -1,92 +1,189 @@
 # OZ RENT A CAR
 
-Responsive single-page car rental application built with React, Vite and Express.
+OZ Rent A Car is a responsive single-page car rental application built with React, Vite and Express.
 
-## Structure
+The application provides a complete rental journey from vehicle availability search to authenticated booking confirmation and booking history.
 
-- `client` - React/Vite front end
-- `server` - Express back end
-- `server/data/cars.json` - vehicle data
-- `server/data/bookings.json` - confirmed bookings
-- `server/data/users.json` - registered accounts with hashed passwords
+## Features
 
-## Install
+- Search vehicle availability using pick-up and return dates
+- Browse available rental vehicles
+- Select a vehicle and optional extras
+- Dynamic server-calculated rental quotes
+- User registration and sign in
+- Protected booking confirmation
+- Unique booking references
+- Personal booking history
+- Responsive phone, tablet and desktop layouts
+- Form validation and clear user feedback
 
-From the main `ozcar-rent` folder:
+## Technology
+
+### Front End
+
+- React
+- Vite
+- JavaScript
+- CSS
+
+### Back End
+
+- Node.js
+- Express
+- JSON-based data storage
+- Server-side authentication and booking logic
+
+## Project Structure
+
+```text
+client/
+    React/Vite front end
+
+server/
+    Express back end
+
+server/data/cars.json
+    Vehicle data
+
+server/data/bookings.json
+    Confirmed booking data
+
+server/data/users.json
+    Registered user accounts
+```
+
+The repository root also contains the shared package configuration, testing record and development notes.
+
+## Installation
+
+From the repository root, install the required dependencies:
 
 ```bash
 npm install
 ```
 
-Do not commit `node_modules`.
+`node_modules` should not be committed to the repository.
 
-## Run
+## Running the Application
 
-Open two terminals in the main project folder.
+Open two terminals in the repository root.
 
-Terminal 1:
+### Terminal 1 - Express server
 
 ```bash
 npm run server
 ```
 
-Terminal 2:
+The API runs on:
+
+```text
+http://localhost:3000
+```
+
+### Terminal 2 - React client
 
 ```bash
 npm run client
 ```
 
-Open:
+Open the application at:
 
 ```text
 http://localhost:5173
 ```
 
-The Express API runs on `http://localhost:3000`. Vite proxies `/api` requests to the server.
+Vite proxies `/api` requests from the client to the Express server.
 
-## Main flow
+## Booking Journey
 
 1. Select pick-up and return dates.
-2. Search vehicle availability.
+2. Search for available vehicles.
 3. Select an available car.
-4. Add optional extras.
+4. Choose optional extras.
 5. Review the server-calculated quote.
 6. Sign in or create an account.
-7. Confirm the booking using the authenticated account.
+7. Confirm the booking.
 8. Receive a unique booking reference.
 9. Open the account area to view confirmed bookings.
 
-## Account system
+## Account and Authentication
 
-- New users can register with name, email and password.
-- Passwords are salted and hashed on the server before they are stored.
-- Successful login creates a server-side session token.
-- Booking creation and booking history require an authenticated account.
-- The client keeps only the session token in local storage.
-- Sessions are intentionally kept in memory for this coursework-scale application and reset when the Express server restarts.
+New users can create an account using their name, email address and password.
 
-## Availability test
+The server validates account information and prevents duplicate email registration. Passwords are salted and hashed before storage.
 
-Pick-up `18/09/2026` and return `21/09/2026` demonstrates existing booking conflicts from `server/data/bookings.json`.
+Successful authentication creates a session that is used to protect booking and booking-history operations.
 
-## Responsive design
+Only authenticated users can confirm bookings and access their personal booking history.
 
-- Phone: one-column search, fleet and booking flow.
-- Tablet: two-column fleet where space allows.
-- Desktop: search panel on the left and three-column fleet on the right.
-- After a car is selected, the fleet is replaced by the extras and review workspace to avoid unnecessary scrolling.
-- Account and authentication interfaces are responsive modal panels.
+## Booking and Availability
 
-## UX and accessibility refinements
+Vehicle availability is checked using the selected rental dates.
 
-- Search, fleet, quote and account views include loading, empty and error states.
-- The previous quote is cleared whenever extras change so an outdated price cannot be confirmed.
-- Date fields use valid minimum dates and the return date must be later than the pick-up date.
-- Authentication and account dialogs support Escape-to-close, initial keyboard focus and visible focus states.
-- Buttons use practical touch targets and small interface text has been increased for readability.
-- Reduced-motion preferences are respected and the confirmation can be printed cleanly.
-- A skip link and semantic main content region improve keyboard navigation.
+The Express server is responsible for the main booking logic, including:
+
+- availability checking
+- rental duration
+- vehicle pricing
+- optional extras
+- quote calculation
+- booking creation
+- booking references
+- user-specific booking history
+
+Availability is checked again when the booking is confirmed so that an earlier search result is not treated as permanent.
+
+## Responsive Design
+
+The interface adapts to different screen sizes.
+
+- **Phone:** single-column booking and fleet layout
+- **Tablet:** two-column vehicle grid where space allows
+- **Desktop:** search panel with a three-column vehicle grid
+
+After a vehicle is selected, the interface changes from fleet browsing to the extras and booking-review workspace.
+
+Authentication and account views also adapt to smaller screens.
+
+## User Experience
+
+The interface includes:
+
+- loading, empty and error states
+- clear validation feedback
+- minimum date controls
+- password visibility controls
+- responsive modal dialogs
+- visible keyboard focus
+- practical touch targets
+- reduced-motion support
+- printable booking confirmation
+- semantic main content structure
+
+Quote information is refreshed when the selected vehicle, dates or extras change so an outdated total cannot be confirmed.
 
 ## Testing
 
-See `TESTING.md` for the account, booking and interface test record.
+The application has been tested for:
+
+- account registration
+- duplicate email prevention
+- valid and invalid sign in
+- session behaviour
+- protected booking
+- vehicle availability
+- dynamic quote calculation
+- booking confirmation
+- personal booking history
+- invalid date validation
+- phone, tablet and desktop layouts
+
+See [`TESTING.md`](TESTING.md) for the detailed test record.
+
+## Development Notes
+
+See [`DEVELOPMENT_NOTES.md`](DEVELOPMENT_NOTES.md) for additional information about implementation decisions, iteration and project development.
+
+---
+
+**Ozgur Serin**
