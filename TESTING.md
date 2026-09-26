@@ -40,4 +40,4 @@ npm run lint
 npm run build
 ```
 
-Both commands should be run before the final GitHub submission.
+
