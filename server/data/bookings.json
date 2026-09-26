@@ -1,0 +1,30 @@
+[
+  {
+    "id": "OZR1001",
+    "carId": 1,
+    "customerName": "Daniel Smith",
+    "pickupDate": "2026-09-18",
+    "returnDate": "2026-09-21"
+  },
+  {
+    "id": "OZR1002",
+    "carId": 4,
+    "customerName": "Sophie Brown",
+    "pickupDate": "2026-09-20",
+    "returnDate": "2026-09-24"
+  },
+  {
+    "id": "OZR1003",
+    "carId": 5,
+    "customerName": "James Wilson",
+    "pickupDate": "2026-09-17",
+    "returnDate": "2026-09-19"
+  },
+  {
+    "id": "OZR1004",
+    "carId": 8,
+    "customerName": "Emma Taylor",
+    "pickupDate": "2026-09-22",
+    "returnDate": "2026-09-26"
+  }
+]
