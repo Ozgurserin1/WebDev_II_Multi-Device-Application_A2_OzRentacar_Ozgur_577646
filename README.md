@@ -4,6 +4,8 @@ OZ Rent A Car is a responsive single-page car rental application built with Reac
 
 The application provides a complete rental journey from vehicle availability search to authenticated booking confirmation and booking history.
 
+![OZ Rent A Car application preview](oz-rent-a-car-preview.jpg)
+
 ## Features
 
 - Search vehicle availability using pick-up and return dates
